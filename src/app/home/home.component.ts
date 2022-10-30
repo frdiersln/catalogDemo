@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  token: any;
+  name: any;
+  email: any;
 
-  ngOnInit(): void {
-  }
+  constructor(private router: Router) {
+    if (this.router.getCurrentNavigation()!.extras!.state! == undefined) {
+      this.router.navigate(['login'])
+    }
+    else{
+      const navigation = this.router.getCurrentNavigation();
+      const state = navigation!.extras.state as {token: any, name: string, email: string};
+      this.token = state.token.token;
+      this.name = state.name;
+      this.email = state.email;
+    }
+   }
+
+  ngOnInit(): void { console.log(this.token) }
 
 }
