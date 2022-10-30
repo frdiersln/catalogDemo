@@ -10,6 +10,8 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { appRoutes } from './routes';
 import { DetailsComponent } from './details/details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,19 @@ import { DetailsComponent } from './details/details.component';
     SignInComponent,
     SignUpComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: 'apiUrl', useValue: 'https://assignment-api.piton.com.tr/api/v1/'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

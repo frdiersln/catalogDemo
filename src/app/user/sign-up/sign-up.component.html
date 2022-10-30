@@ -2,7 +2,7 @@
 
     <div class="form-field">
         <i class="material-icons">person</i>
-        <input type="text" id="name" placeholder="Name" pattern="[a-zA-Z]*" required>
+        <input type="text" [(ngModel)]="name" id="name" name="name" placeholder="Name" pattern="[a-zA-Z]*" required>
         <input type="text" id="surname" placeholder="Surname" pattern="[a-zA-Z]*" required>
     </div>
 
@@ -10,16 +10,15 @@
     <input id="phone" type="tel" name="phone" placeholder="+90 (___) ___ __ __" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
 
     <i class="material-icons">mail</i>
-    <input type="email" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+    <input type="email" [(ngModel)]="email" id="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
     
     <div class="form-field">
 
         <i class="material-icons">key</i>
-        <input type="password" pattern="[0-9]*" inputmode="numeric" id="password" placeholder="Password">
-        <input type="password" pattern="[0-9]*" inputmode="numeric" id="password" placeholder="Confirm Your Password">
+        <input type="password" [(ngModel)]="password" name="password" pattern="[0-9]*" inputmode="numeric" id="password" placeholder="Password">
+        <input type="password" pattern="[0-9]*" inputmode="numeric" id="rePassword" placeholder="Confirm Your Password">
 
     </div>
 
-    <button id="loginBtn" class="btn btn-primary btn-block" > Sign Up </button>
-
+    <button id="loginBtn" class="btn btn-primary btn-block" (click)="preRegister()" > Sign Up </button>
 </form>
