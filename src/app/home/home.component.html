@@ -1,1 +1,11 @@
 <h1>Welcome {{email}}!</h1> 
+<div class="productsWrapper" *ngFor="let product of products">
+
+    <h3> {{product.name}} </h3>
+    <img src="assets{{product.image}}">
+    <h4> {{product.description}} </h4>
+    <h4> {{product.price}} TL </h4>
+    <h4> likes: {{product.likes}} </h4>
+    <button id="details-{{product.id}}"> Details </button>
+    <hr>
+</div>

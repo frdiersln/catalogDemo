@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+}
+
+.productsWrapper{
+
+    width: 66vw;
+    margin: auto;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    img{
+        width: 410px;
+        height: 500px;
+    }
+
+}
