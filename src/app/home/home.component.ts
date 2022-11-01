@@ -72,4 +72,8 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  redirectToDetails(productId: number){
+    this.router.navigate(['details'], { state: { token: this.token, productId: productId} });
+  }
+
 }

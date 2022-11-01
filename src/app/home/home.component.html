@@ -6,6 +6,6 @@
     <h4> {{product.description}} </h4>
     <h3> Price: {{product.price}}$ </h3> 
     <h3> likes: {{product.likes}} <br> <button class="btn-transparent" (click)="like(product.id)"> <i class="material-icons">star</i> </button> </h3>
-    <button class="btn btn-secondary" id="details-{{product.id}}"> Details </button>
+    <button class="btn btn-secondary" (click)="redirectToDetails(product.id)" id="details-{{product.id}}  "> Details </button>
 </div>
 
