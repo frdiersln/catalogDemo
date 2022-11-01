@@ -2,17 +2,49 @@ h1{
     text-align: center;
 }
 
+h2{
+    font-size: 1.89em;
+    text-align: center;
+}
+
+h3{
+    font-size: 1.22em;
+    text-align: center;
+}
+
+h4{
+    font-size: 0.89em;
+    max-width: 26em;
+    text-align: center;
+}
+
+.btn-transparent{
+    border: none;
+    background-color: transparent;
+    margin-top: 4px;
+}
+
 .productsWrapper{
 
-    width: 66vw;
+    width: 41vw;
     margin: auto;
     display: grid;
     justify-items: center;
     align-items: center;
+    margin-bottom: 66px;
+    padding-bottom: 26px;
+
+    background: rgba(102, 255, 252, 0.19);
+    background: rgba(102, 255, 252, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border: 1px solid rgba(102, 255, 252, 0.3);
 
     img{
-        width: 410px;
-        height: 500px;
+        width: 14em;
+        height: 22em;
     }
 
 }

@@ -3,7 +3,7 @@
     <input type="email" [(ngModel)]="email" id="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
     <i class="material-icons">key</i>
     <input type="password" [(ngModel)]="password" id="password" name="password" pattern="[0-9]*" inputmode="numeric" placeholder="Password">
-    <input type="checkbox" id="remindMe">
+    <input type="checkbox" [(ngModel)]="remindMe" id="remindMe" name="remindMe">
     <label for="remindMe"> Remind Me </label>
     <button id="loginBtn" class="btn btn-primary btn-block" (click)="preLogin()" > Login </button>
 

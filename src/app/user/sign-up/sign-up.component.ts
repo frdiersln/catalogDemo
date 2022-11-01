@@ -35,7 +35,7 @@ export class SignUpComponent implements OnInit {
     .subscribe({
       next: (res) => {
         this.token = res
-        this.router.navigate(['home'], { state: { token: this.token, name: this.name, email: this.email} });
+        this.router.navigate(['home'], { state: { token: this.token, email: this.email} });
       },
       error: (err) => console.log(err)
     })

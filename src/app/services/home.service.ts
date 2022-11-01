@@ -15,4 +15,8 @@ export class HomeService {
     return this.http.get(this.apiUrl + 'product/all', token)
   }
 
+  like(token: any, productId: any){
+    return this.http.post(this.apiUrl + 'product/like', token, productId)
+  }
+
 }

@@ -22,22 +22,26 @@ export class HomeComponent implements OnInit {
     private homeService: HomeService,
     private sanitizer:DomSanitizer
     ) {
-    if (this.router.getCurrentNavigation()!.extras!.state! == undefined) {
+
+    if (this.router.getCurrentNavigation()!.extras!.state! === undefined && (localStorage.getItem('token') === undefined || localStorage.getItem('token') === null)) {
       this.router.navigate(['login'])
     }
     else{
       const navigation = this.router.getCurrentNavigation();
-      const state = navigation!.extras.state as {token: any, name: string, email: string};
-      this.token = state.token.token;
-      this.name = state.name;
-      this.email = state.email;
+      const state = navigation!.extras.state as {token: any, email: string};
+      if(localStorage.getItem('token') === undefined || localStorage.getItem('token') === null){
+        this.token = state.token.token;
+        this.email = state.email;
+      }else{
+        this.token = localStorage.getItem('token');
+        this.email = localStorage.getItem('email');
+      }
     }
    }
 
   ngOnInit(): void {
 
     this.token = {headers: new HttpHeaders({ 'access-token': this.token })} //convert string token to http headers
-
 
     this.homeService.getProducts(this.token)
     .subscribe({
@@ -53,22 +57,19 @@ export class HomeComponent implements OnInit {
       
   }
 
-
-  _arrayBufferToBase64( buffer: any ) {
-    var binary = '';
-    var bytes = new Uint8Array( buffer );
-    var len = bytes.byteLength;
-    for (var i = 0; i < len; i++) {
-       binary += String.fromCharCode( bytes[ i ] );
-    }
-    return window.btoa( binary );
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 
-  sanitize( url:string ) {
-    return this.sanitizer.bypassSecurityTrustUrl(url);
+  like(productId: number){
+    this.homeService.like(this.token, productId)
+    .subscribe({
+      next: (res) => {
+        console.log(res)
+      },
+      error: (err) => console.log(err)
+    })
   }
-}
-function forEach(res: ArrayBuffer, arg1: (product: Product) => void) {
-  throw new Error('Function not implemented.');
-}
 
+}

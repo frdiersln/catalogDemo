@@ -1,11 +1,11 @@
-<h1>Welcome {{email}}!</h1> 
+<h1>Welcome {{email}}! <button class="btn-transparent" (click)="logout()"> <i class="material-icons" style="font-size: 0.66em;">logout</i> </button> </h1> 
 <div class="productsWrapper" *ngFor="let product of products">
 
-    <h3> {{product.name}} </h3>
+    <h2> {{product.name}} </h2>
     <img src="assets{{product.image}}">
     <h4> {{product.description}} </h4>
-    <h4> {{product.price}} TL </h4>
-    <h4> likes: {{product.likes}} </h4>
-    <button id="details-{{product.id}}"> Details </button>
-    <hr>
+    <h3> Price: {{product.price}}$ </h3> 
+    <h3> likes: {{product.likes}} <br> <button class="btn-transparent" (click)="like(product.id)"> <i class="material-icons">star</i> </button> </h3>
+    <button class="btn btn-secondary" id="details-{{product.id}}"> Details </button>
 </div>
+
